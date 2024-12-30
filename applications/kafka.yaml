@@ -1,4 +1,3 @@
-# kafka-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,26 +18,27 @@ spec:
       containers:
       - name: kafka
         image: confluentinc/cp-kafka:latest
+        ports:
+        - containerPort: 29092
+        - containerPort: 9092
+        - containerPort: 9997
         env:
         - name: KAFKA_BROKER_ID
           value: "1"
         - name: KAFKA_ZOOKEEPER_CONNECT
           value: "zookeeper:2181"
         - name: KAFKA_ADVERTISED_LISTENERS
-          value: "PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092"
+          value: "PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092"
         - name: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
           value: "PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT"
         - name: KAFKA_INTER_BROKER_LISTENER_NAME
           value: "PLAINTEXT"
         - name: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
           value: "1"
-        ports:
-        - containerPort: 9092
-          name: kafka
-        - containerPort: 29092
-          name: kafka-external
+        - name: KAFKA_JMX_PORT
+          value: "9997"
 ---
-# kafka-service.yaml
+
 apiVersion: v1
 kind: Service
 metadata:
@@ -48,13 +48,18 @@ metadata:
     app: kafka
 spec:
   type: NodePort
-  ports:
-  - name: kafka
-    port: 9092
-    targetPort: 9092
-  - name: kafka-external
-    port: 29092
-    targetPort: 9092
-    nodePort: 30902 # Puerto externo (debe estar en el rango 30000-32767)
   selector:
     app: kafka
+  ports:
+  - name: kafka-internal
+    port: 29092
+    targetPort: 29092
+    nodePort: 30092 # Cambia el puerto externo si es necesario
+  - name: kafka-external
+    port: 9092
+    targetPort: 9092
+    nodePort: 30093 # Cambia el puerto externo si es necesario
+  - name: kafka-jmx
+    port: 9997
+    targetPort: 9997
+    nodePort: 30094 # Cambia el puerto externo si es necesario
