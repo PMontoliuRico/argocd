@@ -21,7 +21,7 @@ spec:
         image: montoliur/kafka-basic-producer:v1 # Cambia a tu imagen del producer
         args:
         - "-b"
-        - "kafka:9092"
+        - "kafkas:9092"
         - "-t"
         - "test"
         env:
