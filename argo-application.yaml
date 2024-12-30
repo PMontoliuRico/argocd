@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com//tu-repositorio.git' # Cambia por tu repositorio
+    repoURL: 'https://github.com/PMontoliuRico/argocd.git' # Cambia por tu repositorio
     targetRevision: HEAD
     path: applications  # Directorio donde están los manifiestos
   destination:
