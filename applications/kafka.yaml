@@ -32,7 +32,11 @@ spec:
           value: "PLAINTEXT"
         - name: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
           value: "1"
-
+        ports:
+        - containerPort: 9092
+          name: kafka
+        - containerPort: 29092
+          name: kafka-external
 ---
 # kafka-service.yaml
 apiVersion: v1
