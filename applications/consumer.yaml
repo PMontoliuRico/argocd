@@ -30,4 +30,4 @@ spec:
           value: "kafka:9092" # Dirección del broker Kafka
         - name: TOPIC
           value: "test"       # Topic del que consumirá mensajes
-        restartPolicy: Always
+
