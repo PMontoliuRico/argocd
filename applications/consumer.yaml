@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: consumer
-        image: montoliur/kafka-basic-consumer:v1 # Cambia a tu imagen del consumer
+        image: <your-repo>/kafka-basic-consumer:v1 #use your own image
         args:
         - "-b"
         - "kafkas:9092"
@@ -27,7 +27,7 @@ spec:
         - "test"
         env:
         - name: BOOTSTRAP_SERVERS
-          value: "kafkas:9092" # Dirección del broker Kafka
+          value: "kafkas:9092" #Kafka broker
         - name: TOPIC
-          value: "test"       # Topic del que consumirá mensajes
+          value: "test"       # Topic
 
