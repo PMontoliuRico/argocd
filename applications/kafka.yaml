@@ -54,12 +54,12 @@ spec:
   - name: kafka-internal
     port: 9092
     targetPort: 9092
-    nodePort: 30092 # Cambia el puerto externo si es necesario
+    nodePort: 30092 
   - name: kafka-external
     port: 29092
     targetPort: 29092
-    nodePort: 30093 # Cambia el puerto externo si es necesario
+    nodePort: 30093 
   - name: kafka-jmx
     port: 9997
     targetPort: 9997
-    nodePort: 30094 # Cambia el puerto externo si es necesario
+    nodePort: 30094 
