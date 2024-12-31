@@ -1,20 +1,34 @@
-# archivo: producer.py
-import time
 from kafka import KafkaProducer
+from json import dumps
+import argparse
+import time
+import logging
+import sys
 
-producer = KafkaProducer(bootstrap_servers='kafka:9092')  # kafka es el nombre del servicio en k8s
+Log_Format = "%(levelname)s %(asctime)s - %(message)s"
+logging.basicConfig(
+                    stream = sys.stdout,
+                    filemode = "w",
+                    format = Log_Format,
+                    level = logging.INFO)
 
-topic_name = 'demo-topic'
+logger = logging.getLogger()
 
-def send_messages():
-    i = 0
-    while True:
-        message = f"Mensaje #{i}"
-        producer.send(topic_name, value=message.encode('utf-8'))
-        print(f"Enviado: {message}")
-        producer.flush()
-        i += 1
-        time.sleep(5)
 
-if __name__ == "__main__":
-    send_messages()
+parser = argparse.ArgumentParser()
+parser.add_argument('-b', '--bootstrap-servers', help="Bootstrap servers to use from Kafka cluster",
+                            required=True)
+parser.add_argument('-t', '--topic', help="Topic to use from Kafka cluster",
+                            required=True)
+args = parser.parse_args()
+
+print(args.bootstrap_servers)
+producer = KafkaProducer(bootstrap_servers=[args.bootstrap_servers],
+                         value_serializer=lambda x:
+                         dumps(x).encode('utf-8'))
+
+for e in range(10):
+    data = {'number' : e}
+    logger.info(f"Writing document {data} to Kafka cluster...")
+    producer.send(args.topic, value=data)
+    time.sleep(1)
