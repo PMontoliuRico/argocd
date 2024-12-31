@@ -1,4 +1,4 @@
-# zookeeper-deployment.yaml
+# zookeeper-deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,7 +27,7 @@ spec:
         ports:
         - containerPort: 2181
 ---
-# zookeeper-service.yaml
+# zookeeper-service
 apiVersion: v1
 kind: Service
 metadata:
