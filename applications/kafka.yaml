@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kafkas
+  name: kafka
   namespace: kafka
   labels:
-    app: kafkas
+    app: kafka
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kafkas
+      app: kafka
   template:
     metadata:
       labels:
-        app: kafkas
+        app: kafka
     spec:
       containers:
-      - name: kafkas
+      - name: kafka
         image: confluentinc/cp-kafka:latest
         ports:
         - containerPort: 29092
@@ -42,14 +42,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kafkas
+  name: kafkasvc #Its important to dont give the name "kafka" to the service.
   namespace: kafka
   labels:
-    app: kafkas
+    app: kafka
 spec:
   type: NodePort
   selector:
-    app: kafkas
+    app: kafka
   ports:
   - name: kafka-internal
     port: 9092
