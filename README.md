@@ -70,29 +70,41 @@ This setup ensures:
 2. Efficiency: Simplifies updates and reduces manual intervention.
 
 
-**Steps to Deploy Kafka Producer and Consumer**
-- Create an ArgoCD application by running the following command:
+Para que las líneas de explicación como `--repo`, `--path`, etc., aparezcan separadas en GitHub, necesitas usar un formato apropiado como listas o bloques de código. Aquí tienes una versión mejorada que funcionará correctamente en un archivo `README.md` de GitHub:
+
+---
+
+### **Steps to Deploy Kafka Producer and Consumer**
+
+#### **1. Create an ArgoCD application**
+Run the following command:
+```bash
 argocd app create kafka-app \
   --repo https://github.com/youruser/yourrepo.git \
   --path applications \
   --dest-server https://kubernetes.default.svc \
   --dest-namespace kafka
+```
 
---repo: Specifies your GitHub repository containing the Kubernetes manifests.
---path: The directory within the repository where the manifests are located.
---dest-server: The Kubernetes cluster URL (default for in-cluster is https://kubernetes.default.svc).
---dest-namespace: The Kubernetes namespace for deploying the application.
+**Explanation of the parameters:**
+- **`--repo`**: Specifies your GitHub repository containing the Kubernetes manifests.
+- **`--path`**: The directory within the repository where the manifests are located.
+- **`--dest-server`**: The Kubernetes cluster URL (default for in-cluster is `https://kubernetes.default.svc`).
+- **`--dest-namespace`**: The Kubernetes namespace for deploying the application.
 
-- Sync Application to Kubernetes
+---
+
+#### **2. Sync Application to Kubernetes**
+Run the following command:
+```bash
 argocd app sync kafka-app
+```
 
 This command:
+- Applies the Kubernetes manifests in the specified repository and path.
+- Ensures the state in Kubernetes matches the desired state defined in Git.
 
-Applies the Kubernetes manifests in the specified repository and path.
-Ensures the state in Kubernetes matches the desired state defined in Git.
 
-
-## Issues Faced
 
 ===> Configuring ... KAFKA_PORT is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead...
 
