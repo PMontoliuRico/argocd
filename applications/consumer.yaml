@@ -22,12 +22,12 @@ spec:
         image: montoliur/kafka-basic-consumer:v1 #use your own image
         args:
         - "-b"
-        - "kafka:9092"
+        - "kafkas:9092"
         - "-t"
         - "test"
         env:
         - name: BOOTSTRAP_SERVERS
-          value: "kafka:9092" #Kafka broker
+          value: "kafkas:9092" #Kafka broker
         - name: TOPIC
           value: "test"       # Topic
 
