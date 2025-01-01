@@ -70,10 +70,6 @@ This setup ensures:
 2. Efficiency: Simplifies updates and reduces manual intervention.
 
 
-Para que las líneas de explicación como `--repo`, `--path`, etc., aparezcan separadas en GitHub, necesitas usar un formato apropiado como listas o bloques de código. Aquí tienes una versión mejorada que funcionará correctamente en un archivo `README.md` de GitHub:
-
----
-
 ### **Steps to Deploy Kafka Producer and Consumer**
 
 #### **1. Create an ArgoCD application**
@@ -105,7 +101,7 @@ This command:
 - Ensures the state in Kubernetes matches the desired state defined in Git.
 
 
-
+# Issues Faced
 ===> Configuring ... KAFKA_PORT is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead...
 
 This error occurs due to how Kubernetes automatically generates environment variables for services when a pod starts. The kubelet dynamically creates these variables based on the names, hosts, and ports of services in the cluster. For example, if you name your service kafka, Kubernetes will generate variables like:
