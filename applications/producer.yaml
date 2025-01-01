@@ -1,4 +1,4 @@
-# producer-deployment.yaml
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: producer
-        image: montoliur/kafka-basic-producer:v1 # Cambia a tu imagen del producer
+        image: <your-image>/kafka-basic-producer:v1 # Cambia a tu imagen del producer
         args:
         - "-b"
         - "kafkas:9092"
@@ -26,6 +26,6 @@ spec:
         - "test"
         env:
         - name: BOOTSTRAP_SERVERS
-          value: "kafkas:9092" # Dirección del broker Kafka
+          value: "kafkas:9092" # Kafkas broker
         - name: TOPIC
-          value: "test"       # Topic al que producirá mensajes
+          value: "test"       # Topic 
