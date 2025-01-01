@@ -78,10 +78,10 @@ argocd app create kafka-app \
   --dest-server https://kubernetes.default.svc \
   --dest-namespace kafka
 
-  --repo: Specifies your GitHub repository containing the Kubernetes manifests.
-  --path: The directory within the repository where the manifests are located.
-  --dest-server: The Kubernetes cluster URL (default for in-cluster is https://kubernetes.default.svc).
-  --dest-namespace: The Kubernetes namespace for deploying the application.
+-repo: Specifies your GitHub repository containing the Kubernetes manifests.
+-path: The directory within the repository where the manifests are located.
+-dest-server: The Kubernetes cluster URL (default for in-cluster is https://kubernetes.default.svc).
+-dest-namespace: The Kubernetes namespace for deploying the application.
 
 2. Sync Application to Kubernetes
 argocd app sync kafka-app
