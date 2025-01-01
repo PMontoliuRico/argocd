@@ -42,7 +42,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kafkasvc #Its important to dont give the name "kafka" to the service.
+  name: kafkas #Its important to dont give the name "kafka" to the service.
   namespace: kafka
   labels:
     app: kafkas
