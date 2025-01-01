@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: consumer
-        image: montoliur/kafka-basic-consumer:v1 #use your own image
+        image: <your-image>/kafka-basic-consumer:v1 #use your own image
         args:
         - "-b"
         - "kafkas:9092"
