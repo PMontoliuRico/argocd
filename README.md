@@ -60,3 +60,9 @@ The goal is to establish a seamless GitOps workflow where updates to the produce
 ![image](https://github.com/user-attachments/assets/75e01e89-2b88-4652-a0b8-ea070d47421d)
 
 This setup ensures that any changes made to the code are reflected in the deployment, maintaining consistency and facilitating efficient updates.
+
+# Issues I faced
+
+===> Configuring ... port is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead...
+
+Si se quiere evitar el siguiente error, es importante que no se de al servivio el numbre de kafka 
