@@ -5,7 +5,7 @@ For this practice, we will start by explaining the purpose and functionality of 
 ### Kafka
 Kafka is a distributed event streaming platform designed for high-performance data pipelines, streaming analytics, and real-time processing. It allows producers and consumers to communicate seamlessly through a publish-subscribe model.
 
-##### Applications of Kafka Beyond This Tutorial
+**Applications of Kafka Beyond This Tutorial**
 - Real-time Data Processing: Used by companies like LinkedIn, Netflix, and Uber to process and analyze massive streams of real-time data.
 - Event-Driven Architectures: Kafka is widely used as the backbone for microservices communication.
 - Data Integration: Acts as a central hub for collecting and distributing data across systems.
@@ -20,8 +20,7 @@ Zookeeper is a critical component for Kafka’s functionality. It is responsible
 
 ### Kubernetes 
 
-If you know what a container is—like a lightweight package with everything an app needs to run—you’ve probably heard of Docker, the tool for creating and managing these containers.
-
+If you know what a container is like you’ve probably heard of Docker, the tool for creating and managing these containers.
 While Docker runs containers on a single machine, Kubernetes takes it to the next level: it manages and orchestrates containers across multiple machines.
 
 - Docker creates containers.
@@ -32,7 +31,7 @@ If you’ve mastered Docker, Kubernetes is the natural next step for learning ho
 
 ArgoCD is a tool designed to automate the process of deploying and managing applications in Kubernetes. It works by syncing the desired state of your applications, defined in a Git repository, with your actual Kubernetes cluster.
 
-Why is ArgoCD Useful?
+**Why is ArgoCD Useful?**
 Automated and Consistent: It eliminates the need for manual deployments and reduces the chances of errors.
 Version Control: All configurations are stored in Git, making it easy to track changes and roll back if needed.
 Continuous Monitoring: ArgoCD keeps monitoring your cluster, ensuring it stays in sync with the desired state.
