@@ -50,13 +50,47 @@ Once you got ready your environment you can start coding.
 
 ## Code
 
-For this tutorial, we will create two Docker images: one for a Kafka producer that sends 10 sequential messages to a specified Kafka topic, and another for a Kafka consumer that receives and processes those messages.
+In this tutorial, we will create two Docker images:
 
-The goal is to establish a seamless GitOps workflow where updates to the producer and consumer code are pushed to GitHub and automatically deployed to Kubernetes using ArgoCD. The desired state of the application will be defined in ArgoCD Application manifests, which will also reside in the same Git repository.
+1. A Kafka Producer that sends 10 sequential messages to a specified Kafka topic.
+2. A Kafka Consumer that receives and processes those messages.
+
+
+The objective is to implement a seamless GitOps workflow where:
+
+- Updates to the producer and consumer code are pushed to a GitHub repository.
+- The changes are automatically deployed to Kubernetes using ArgoCD.
+The desired state of the application will be defined in ArgoCD Application manifests, which will reside in the same Git repository.
 
 ![image](https://github.com/user-attachments/assets/75e01e89-2b88-4652-a0b8-ea070d47421d)
 
-This setup ensures that any changes made to the code are reflected in the deployment, maintaining consistency and facilitating efficient updates.
+This setup ensures:
+
+1. Consistency: Any code changes are automatically reflected in the deployment, keeping the system consistent with the desired state.
+2. Efficiency: Simplifies updates and reduces manual intervention.
+
+
+**Steps to Deploy Kafka Producer and Consumer**
+1. Create an ArgoCD application by running the following command:
+argocd app create kafka-app \
+  --repo https://github.com/youruser/yourrepo.git \
+  --path applications \
+  --dest-server https://kubernetes.default.svc \
+  --dest-namespace kafka
+
+--repo: Specifies your GitHub repository containing the Kubernetes manifests.
+--path: The directory within the repository where the manifests are located.
+--dest-server: The Kubernetes cluster URL (default for in-cluster is https://kubernetes.default.svc).
+--dest-namespace: The Kubernetes namespace for deploying the application.
+
+2. Sync Application to Kubernetes
+argocd app sync kafka-app
+
+This command:
+
+Applies the Kubernetes manifests in the specified repository and path.
+Ensures the state in Kubernetes matches the desired state defined in Git.
+
 
 ## Issues Faced
 
