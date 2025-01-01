@@ -61,8 +61,10 @@ The goal is to establish a seamless GitOps workflow where updates to the produce
 
 This setup ensures that any changes made to the code are reflected in the deployment, maintaining consistency and facilitating efficient updates.
 
-# Issues I faced
+# Issues Faced
 
-===> Configuring ... port is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead...
+===> Configuring ... KAFKA_PORT is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead...
 
-Si se quiere evitar el siguiente error, es importante que no se de al servivio el numbre de kafka 
+This error occurs due to how Kubernetes automatically generates environment variables for services when a pod starts. The kubelet dynamically creates these variables based on the names, hosts, and ports of services in the cluster. For example, if you name your service kafka, Kubernetes will generate variables like:
+KAFKA_PORT, KAFKA_PORT_9092_TCP, KAFKA_SERVICE_HOST, etc.
+This interfere with Kafka's configuration. The simplest way to resolve this issue is to rename your Kubernetes service to something distinct from the default kafka. This ensures that Kubernetes-generated variables do not interfere with Kafka's configuration.
