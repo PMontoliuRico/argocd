@@ -18,8 +18,6 @@ Zookeeper is a critical component for Kafka’s functionality. It is responsible
 - Facilitating leader elections for Kafka partitions to ensure availability and fault tolerance.
 - Notifying Kafka of configuration changes, such as new topics or brokers.
 
-Although newer Kafka versions are reducing reliance on Zookeeper, it remains integral to this tutorial for understanding the traditional Kafka ecosystem.
-
 ### Kubernetes 
 
 If you know what a container is—like a lightweight package with everything an app needs to run—you’ve probably heard of Docker, the tool for creating and managing these containers.
