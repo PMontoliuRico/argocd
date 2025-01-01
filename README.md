@@ -46,7 +46,7 @@ https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.ex
 Secondly, once Kubernetes is running we’ll need to install and configure ArgoCD. For this, here you can find the link to the official ArgoCD documentation, which outlines the basic setup steps:
 https://argo-cd.readthedocs.io/en/stable/getting_started/
 
-Once we got ready our environment we can start coding.
+Once you got ready your environment you can start coding.
 
 ## Code
 
