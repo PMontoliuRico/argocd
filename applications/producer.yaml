@@ -21,11 +21,11 @@ spec:
         image: montoliur/kafka-basic-producer:v1 # Cambia a tu imagen del producer
         args:
         - "-b"
-        - "kafkas:9092"
+        - "kafka:9092"
         - "-t"
         - "test"
         env:
         - name: BOOTSTRAP_SERVERS
-          value: "kafkas:9092" # Dirección del broker Kafka
+          value: "kafka:9092" # Dirección del broker Kafka
         - name: TOPIC
           value: "test"       # Topic al que producirá mensajes
