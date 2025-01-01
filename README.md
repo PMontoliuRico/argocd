@@ -38,7 +38,7 @@ Continuous Monitoring: ArgoCD keeps monitoring your cluster, ensuring it stays i
 
 
 
-# Environment Setup
+## Environment Setup
 
 For this practice, the first thing you’ll need if you plan to use Minikube on your local machine is to have Docker installed or any virtual machine manager like VirtualBox. Here’s the link to the official Minikube website, where the installation process is explained in more detail:
 https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
@@ -48,7 +48,7 @@ https://argo-cd.readthedocs.io/en/stable/getting_started/
 
 Once we got ready our environment we can start coding.
 
-# Code
+## Code
 
 For this tutorial, we will create two Docker images: one for a Kafka producer that sends 10 sequential messages to a specified Kafka topic, and another for a Kafka consumer that receives and processes those messages.
 
@@ -58,7 +58,7 @@ The goal is to establish a seamless GitOps workflow where updates to the produce
 
 This setup ensures that any changes made to the code are reflected in the deployment, maintaining consistency and facilitating efficient updates.
 
-# Issues Faced
+## Issues Faced
 
 ===> Configuring ... KAFKA_PORT is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead...
 
