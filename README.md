@@ -40,6 +40,7 @@ Version Control: All configurations are stored in Git, making it easy to track c
 Continuous Monitoring: ArgoCD keeps monitoring your cluster, ensuring it stays in sync with the desired state.
 
 
+
 # Environment Setup
 
 For this practice, the first thing you’ll need if you plan to use Minikube on your local machine is to have Docker installed or any virtual machine manager like VirtualBox. Here’s the link to the official Minikube website, where the installation process is explained in more detail:
@@ -52,4 +53,10 @@ Once we got ready our environment we can start coding.
 
 # Code
 
-For this "tutorial" 
+For this tutorial, we will create two Docker images: one for a Kafka producer that sends 10 sequential messages to a specified Kafka topic, and another for a Kafka consumer that receives and processes those messages.
+
+The goal is to establish a seamless GitOps workflow where updates to the producer and consumer code are pushed to GitHub and automatically deployed to Kubernetes using ArgoCD. The desired state of the application will be defined in ArgoCD Application manifests, which will also reside in the same Git repository.
+
+![image](https://github.com/user-attachments/assets/75e01e89-2b88-4652-a0b8-ea070d47421d)
+
+This setup ensures that any changes made to the code are reflected in the deployment, maintaining consistency and facilitating efficient updates.
