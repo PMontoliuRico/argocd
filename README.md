@@ -102,7 +102,9 @@ This command:
 
 
 # Issues Faced
+```bash
 ===> Configuring ... KAFKA_PORT is deprecated. Please use KAFKA_ADVERTISED_LISTENERS instead...
+```
 
 This error occurs due to how Kubernetes automatically generates environment variables for services when a pod starts. The kubelet dynamically creates these variables based on the names, hosts, and ports of services in the cluster. For example, if you name your service kafka, Kubernetes will generate variables like:
 KAFKA_PORT, KAFKA_PORT_9092_TCP, KAFKA_SERVICE_HOST, etc.
